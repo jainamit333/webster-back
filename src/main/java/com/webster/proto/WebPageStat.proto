@@ -1,0 +1,21 @@
+package com.webster.proto;
+
+option java_package = "com.amit.webster.api";
+option java_outer_classname = "WebPageStat";
+
+message WebPageStats{
+
+    required string completeUrl=1;
+    required string baseUrl=2;
+    optional string header=3;
+    optional int32 likes=4;
+
+    message MetaData{
+        optional string metaData=1;
+    }
+
+    repeated MetaData metadata = 7;
+
+}
+
+

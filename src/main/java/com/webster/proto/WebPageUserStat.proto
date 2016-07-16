@@ -1,0 +1,22 @@
+package com.webster.proto;
+
+option java_package = "com.amit.webster.api";
+option java_outer_classname = "WebPageUserStat";
+
+message WebPageUserStats{
+
+    required string userId = 7;
+    required string completeUrl=1;
+    required string baseUrl=2;
+    required string header=3;
+    required bool like=4;
+    optional string note=5;
+
+    message Tags{
+        optional string tag=1;
+    }
+
+    repeated Tags tag = 6;
+
+}
+
