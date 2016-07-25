@@ -1,10 +1,12 @@
 package com.webster.entity;
 
+import com.couchbase.client.java.repository.annotation.Field;
 import lombok.Data;
-import org.springframework.data.couchbase.core.mapping.Field;
 import org.springframework.data.couchbase.core.mapping.Document;
 
 
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import java.io.Serializable;
 import java.util.Date;

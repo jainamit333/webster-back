@@ -1,8 +1,8 @@
 package com.webster.Util;
 
-import org.codehaus.jettison.json.JSONArray;
-import org.codehaus.jettison.json.JSONException;
-import org.codehaus.jettison.json.JSONObject;
+
+import org.json.JSONArray;
+import org.json.JSONObject;
 import org.springframework.stereotype.Component;
 import java.util.Arrays;
 import java.util.regex.Pattern;

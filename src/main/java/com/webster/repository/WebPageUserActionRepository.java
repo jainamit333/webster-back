@@ -9,11 +9,10 @@ import java.util.List;
 /**
  * Created by amit on 23/7/16.
  */
-@Repository
-public interface WebPageUserActionRepository  extends CrudRepository<WebPageUserAction,Integer> {
+public interface WebPageUserActionRepository  extends CrudRepository<WebPageUserAction,Long> {
     List<WebPageUserAction> findByCompleteUrlAndUserId(String url, String userId);
 
-    Long countByCompleteUrlAndLike(String url, int i);
+    Long countByCompleteUrlAndLikeValue(String url, int i);
 
-    Long countByMainUrlAndLike(String url, int i);
+    Long countByMainUrlAndLikeValue(String url, int i);
 }

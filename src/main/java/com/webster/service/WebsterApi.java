@@ -1,7 +1,7 @@
 package com.webster.service;
 
 import com.webster.entity.UserTags;
-import org.codehaus.jettison.json.JSONException;
+
 
 import java.net.URISyntaxException;
 

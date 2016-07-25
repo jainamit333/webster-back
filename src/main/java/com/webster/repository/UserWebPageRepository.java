@@ -7,7 +7,7 @@ import org.springframework.stereotype.Repository;
 /**
  * Created by amit on 23/7/16.
  */
-@Repository
+
 public interface UserWebPageRepository extends CrudRepository<UserWebpage,String> {
 
 }

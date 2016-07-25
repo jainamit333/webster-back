@@ -12,8 +12,8 @@ import com.webster.repository.UserWebPageRepository;
 import com.webster.repository.WebHistoryRepository;
 import com.webster.repository.WebPageUserActionRepository;
 import com.webster.service.WebsterApi;
-import org.codehaus.jettison.json.JSONArray;
-import org.codehaus.jettison.json.JSONException;
+
+import org.json.JSONArray;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
@@ -31,8 +31,8 @@ import java.util.*;
 @Component
 public class WebsterApiImpl implements WebsterApi {
 
-    @Autowired
-    private UserTagsRepository userTagsRepository;
+//    @Autowired
+//    private UserTagsRepository userTagsRepository;
 
     @Autowired
     private UserWebPageRepository userWebPageRepository;
@@ -93,23 +93,23 @@ public class WebsterApiImpl implements WebsterApi {
     @Override
     @Async
     public void addNewTagsToUserGroup(String tag, String userId) {
-        List<UserTags> userTags = userTagsRepository.findByTagsAndUserId(tag,userId);
-        if(userTags == null || userTags.size()==0){
-            UserTags userTag = new UserTags();
-            userTag.setUserId(userId);
-            userTag.setTags(tag);
-            userTag.setCreatedAt(new Date());
-            userTag.setUpdatedAt(new Date());
-            userTagsRepository.save(userTag);
-        }else{
-            updateTagsToUserGroup(userTags.get(0));
-        }
+//        List<UserTags> userTags = userTagsRepository.findByTagsAndUserId(tag,userId);
+//        if(userTags == null || userTags.size()==0){
+//            UserTags userTag = new UserTags();
+//            userTag.setUserId(userId);
+//            userTag.setTags(tag);
+//            userTag.setCreatedAt(new Date());
+//            userTag.setUpdatedAt(new Date());
+//            userTagsRepository.save(userTag);
+//        }else{
+//            updateTagsToUserGroup(userTags.get(0));
+//        }
     }
 
     @Override
     public void updateTagsToUserGroup(UserTags userTags) {
         userTags.setUpdatedAt(new Date());
-        userTagsRepository.save(userTags);
+        //userTagsRepository.save(userTags);
     }
 
     @Override
@@ -144,23 +144,23 @@ public class WebsterApiImpl implements WebsterApi {
 
     @Override
     public String getWebpageData(String url) {
-        return webPageUserActionRepository.countByCompleteUrlAndLike(url,1).toString();
+        return webPageUserActionRepository.countByCompleteUrlAndLikeValue(url,1).toString();
     }
 
     @Override
     public String getAbsoluteWebpageData(String url) {
-        return webPageUserActionRepository.countByMainUrlAndLike(url,1).toString();
+        return webPageUserActionRepository.countByMainUrlAndLikeValue(url,1).toString();
     }
 
     @Override
     public String getUserTags(String userId, Integer limit) {
         Pageable pageable = new PageRequest(limit - 1, 20, Sort.Direction.DESC, "updatedAt");
-        return userTagsRepository.findByUserId(pageable,userId).toString();
+        return "Currenlty Not Implemented";//userTagsRepository.findByUserId(pageable,userId).toString();
     }
 
     @Override
     public String getAllUserTags(String userId) {
-        return userTagsRepository.findByUserId(userId).toString();
+        return "";//userTagsRepository.findByUserId(userId).toString();
     }
 
     @Override
